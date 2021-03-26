@@ -80,11 +80,24 @@ def randoSearch():
     print(listyBoi[random.randint(0, len(listyBoi)-1)])
 
 def linSearch():
-    print("this is bad people don/'t realy do this/, but let us search bad")
+    print("this is bad people don/'t realy do this, but let us search bad")
     searchThing = input("What number are you looking to find")
     for x in range (len(listyBoi)):
         if listyBoi[x] == int(searchThing):
             print("your idem is at index position {}".format(x))
+
+def recusiveBinarySearch(uniqueList, low, high, x):
+    if high >= low:
+        mid = (high + low) // 2
+
+        if uniqueList[mid] == x:
+            print("wow, what luck your number is at {}".format(mid))
+        elif uniqueList[mid] > x:
+            return recursiveBinarySearch(uniqueList, low, mid - 1, x)
+        else:
+            return recursiveBinarySearch(uniqueList, mid+1, high, x)
+    else:
+        print("your number isn't here")
 
 def printLists():
     if len(unique) == 0:
